@@ -1,0 +1,17 @@
+version: '3'
+services:
+  livy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: parrotstream/livy:0.3.0-1.6.0-cdh5.11.1
+    networks:
+    - parrot
+    ports:
+    - 8998:8998
+networks:
+  default:
+    external:
+      name: parrot
+  parrot:
+    driver: bridge
